@@ -28,7 +28,7 @@ class Sentence:
 
         #split each side into string atoms
         lhs_arr = lhs.split("^")
-        #handle if right side is none
+         #handle if right side is none
         rhs_arr =[]
         if rhs is None:
             rhs_arr = None
