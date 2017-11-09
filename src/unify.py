@@ -2,8 +2,8 @@ from .Atom import Atom
 import re
 
 def unify(atom1, atom2):
-    fail = compatible_atoms(atom1, atom2)
-    if fail:
+    compatible = compatible_atoms(atom1, atom2)
+    if not compatible:
         return None
     substitutions = {}
     for a1, a2 in zip(atom1.arguments, atom2.arguments):
