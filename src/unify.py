@@ -1,5 +1,4 @@
 from .Atom import Atom
-from .substitution import substitution as sub
 import re
 
 def unify(atom1, atom2):
