@@ -1,1 +1,3 @@
-{}
+{
+  "test/test_unify.py::TestUnifyClass": true
+}
