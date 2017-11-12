@@ -56,7 +56,7 @@ def fol_fc_ask(KB, fact, alpha):
                         new.append(q_)
                         phi = unify(q_, alpha)
                         if phi is not None:
-                            yield phi
+                            return phi
         
         if not new:
             break
@@ -64,4 +64,6 @@ def fol_fc_ask(KB, fact, alpha):
             KB.append(clause)
     return None
 
+
+def
 

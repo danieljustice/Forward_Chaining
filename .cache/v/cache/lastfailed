@@ -1,1 +1,3 @@
-{}
+{
+  "test/test_fc.py::TestFCClass::test_fc": true
+}
