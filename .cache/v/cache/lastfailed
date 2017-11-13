@@ -1,3 +1,6 @@
 {
-  "test/test_fc.py::TestFCClass::test_fc": true
+  "test/test_fc.py::TestFCClass::test_fc": true,
+  "test/test_fc.py::TestFCClass::test_fire": true,
+  "test/test_fc.py::TestFCClass::test_substitutions": true,
+  "test/test_sentence.py::TestSentenceClass::test_str": true
 }

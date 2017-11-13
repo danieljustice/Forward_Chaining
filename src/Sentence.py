@@ -49,3 +49,23 @@ class Sentence:
             for atom in rhs_arr:
                 rhs_atomized.append(Atom(atom))
         return [lhs_atomized, rhs_atomized]
+
+
+        # def __eq__(self, other):
+        #     print("woot")
+        #     return True
+
+        # def __cmp__(self, other):
+        #     print("woot")
+        #     return True
+        
+        # def __repr__(self):
+        #     return "rawr" 
+        # def __str__(self):
+        #     return "woot"
+            # lhs = self.lhs[0].predicate + "(" + self.lhs[0].arguments + ")"
+
+            # for atom in range(1, len(self.lhs)):
+            #     lhs = lhs + "^" + atom.predicate + "(" + atom.arguments + ")"
+
+            # return lhs
