@@ -1,4 +1,8 @@
 {
+  "test/test_atom.py::TestAtomClass": true,
+  "test/test_fc.py::TestFCClass": true,
   "test/test_fc.py::TestFCClass::test_fc": true,
-  "test/test_sentence.py::TestSentenceClass::test_str": true
+  "test/test_sentence.py::TestSentenceClass": true,
+  "test/test_sentence.py::TestSentenceClass::test_str": true,
+  "test/test_unify.py::TestUnifyClass": true
 }
