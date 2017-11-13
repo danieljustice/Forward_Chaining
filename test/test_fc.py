@@ -23,11 +23,12 @@ class TestFCClass(unittest.TestCase):
     #     assert 1 ==fol_fc_ask(meat_rule,meat_fact, Atom("Is(Tasty)"))
 
 
-    # def test_fire(self):
-    #     meat_rule = Sentence("Meat(x) ^ Fruit(y)->Tasty(x, y)")
-    #     meat_fact = Sentence("Meat(Steak)")
-    #     fruit_fact = Sentence("Fruit(Steak)")
-    #     assert fire([meat_rule], [fruit_fact], meat_fact) == True
+    def test_fire(self):
+        meat_rule = Sentence("Meat(x) ^ Fruit(y)->Tasty(x, y)")
+        meat_fact = Sentence("Meat(Steak)")
+        fruit_fact = Sentence("Fruit(Banana)")
+        goal = Sentence("Tasty(Steak,Banana")
+        assert fire([meat_rule], [fruit_fact], meat_fact) == [fruit_fact, meat_fact, goal]
 
     def test_substitutions(self):
         meat_rule = Sentence("Meat(x)^Fruit(y)->Tasty(x,y)")

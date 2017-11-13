@@ -1,11 +1,16 @@
 from .Atom import Atom
 class Sentence:
-    def __init__(self, sentence):
-        sides = self.split_sentence(sentence)
-        #lhs == left hand side
-        self.lhs = sides[0]
-        #rhs == right hand side
-        self.rhs = sides[1]
+    def __init__(self, sentence = None):
+        
+        if(sentence is None):
+            self.lhs = None
+            self.rhs = None
+        else:
+            sides = self.split_sentence(sentence)   
+            #lhs == left hand side
+            self.lhs = sides[0]
+            #rhs == right hand side
+            self.rhs = sides[1]
 
     def split_sentence(self, sentence):
         """splits sentence string into lhs and rhs and atoms within each"""
@@ -50,6 +55,23 @@ class Sentence:
                 rhs_atomized.append(Atom(atom))
         return [lhs_atomized, rhs_atomized]
 
+
+    def __eq__(self, other): 
+        # print("woot2")
+        print(self.__str__(), other.__str__())
+        return self.__dict__ == other.__dict__
+
+    def __cmp__(self, other): 
+        print("woot")
+        return self.__dict__ == other.__dict__
+
+    def __str__(self):
+        string = self.lhs[0].__str__()
+        for i in range(1, len(self.lhs)):
+            string = string + "^" + self.lhs[i].__str__()
+        if(self.rhs is not None):
+            string = string + "->" + self.rhs[0].__str__()
+        return string
 
         # def __eq__(self, other):
         #     print("woot")

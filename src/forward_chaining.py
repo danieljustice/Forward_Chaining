@@ -122,15 +122,29 @@ def enum_subst(p, fact):
 
 
 def fire(Rules, Facts, fact):
-    return None
+    tempRules = Rules[:]
     Facts.append(fact)
-    for rule in Rules:
+    for rule in tempRules:
         for fac in Facts:
-            theta = substitutions(rule, fac)            
+            theta = substitutions(rule, fac)         
+            if len(theta) > 0:
+                # print("woot1")
+                newSentence = subst(theta, rule)
+                #if there are no variables, there are only instances, this is a fact
+                if(len(variables(newSentence.lhs)) == 0):
+                    newFact = Sentence()
+                    newFact.lhs = newSentence.rhs
+                    Facts.append(newFact)
+                else:
+                    tempRules.append(newSentence)
 
-#     return False
+    # for fact in Facts:
+    #     print(fact.lhs[0].predicate + "(" + ''.join(fact.lhs[0].arguments) + ")")
+
+    return Facts
 
 def substitutions(rule, fact):
+    """takes in a fact and a rule, returns all usable subs"""
     atom_pairs =  [(atom1, fact.lhs[0]) for atom1 in rule.lhs] 
     # F efficiency
     result = {}

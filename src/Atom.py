@@ -22,9 +22,17 @@ class Atom:
         return predicate, arguments
 
     def __eq__(self, other): 
-        print("woot1")
+        # print("woot1")
         return self.__dict__ == other.__dict__
 
     def __cmp__(self, other): 
         print("woot")
         return self.__dict__ == other.__dict__
+
+    def __str__(self):
+        string = self.predicate + "("
+        string = string + self.arguments[0]
+        for i in range(1, len(self.arguments)):
+            string = string + "," + self.arguments[i]
+        string = string + ")"
+        return string
