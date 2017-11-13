@@ -24,3 +24,9 @@ class TestAtomClass(unittest.TestCase):
     def test_predicate(self):
         meat_atom = Atom("Meat(x)")
         assert meat_atom.predicate == "Meat"
+
+    def test_eq(self):
+        meat_atom1 = Atom("Meat(x)")
+        meat_atom2 = Atom("Meat(x)")
+        print("Woot")
+        assert meat_atom1 == meat_atom2

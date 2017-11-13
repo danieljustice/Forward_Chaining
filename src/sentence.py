@@ -1,4 +1,4 @@
-from Atom import Atom
+from .Atom import Atom
 class Sentence:
     def __init__(self, sentence = None):
         
@@ -58,7 +58,7 @@ class Sentence:
 
     def __eq__(self, other): 
         # print("woot2")
-        # print(self.__str__(), other.__str__())
+        print(self.__str__(), other.__str__())
         return self.__dict__ == other.__dict__
 
     def __cmp__(self, other): 

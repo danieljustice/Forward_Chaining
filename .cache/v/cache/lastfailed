@@ -1,1 +1,14 @@
-{}
+{
+  "test/test_atom.py::TestAtomClass::test_arguments": true,
+  "test/test_atom.py::TestAtomClass::test_eq": true,
+  "test/test_atom.py::TestAtomClass::test_init": true,
+  "test/test_atom.py::TestAtomClass::test_predicate": true,
+  "test/test_fc.py": true,
+  "test/test_fc.py::TestFCClass": true,
+  "test/test_fc.py::TestFCClass::test_fc": true,
+  "test/test_sentence.py": true,
+  "test/test_sentence.py::TestSentenceClass": true,
+  "test/test_sentence.py::TestSentenceClass::test_str": true,
+  "test/test_unify.py": true,
+  "test/test_unify.py::TestUnifyClass": true
+}

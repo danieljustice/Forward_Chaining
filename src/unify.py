@@ -1,4 +1,4 @@
-from .Atom import Atom
+from Atom import Atom
 import re
 
 def unify(atom1, atom2):

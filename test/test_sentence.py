@@ -25,3 +25,15 @@ class TestSentenceClass(unittest.TestCase):
         assert meat_rule.rhs == [Atom("Is(Tasty)")]
         meat_fact = Sentence("Meat(Tasty)")
         assert meat_fact.rhs is None
+
+    def test_eq(self):
+        meat_fact1 = Sentence("Meat(Tasty)")
+        meat_fact2 = Sentence("Meat(Tasty)")
+        # assert meat_fact1.lhs == meat_fact2.lhs
+        # assert meat_fact1.rhs == meat_fact2.rhs
+        assert meat_fact1 == meat_fact2
+        
+
+    # def test_str(self):
+    #     meat_rule = Sentence("Meat(x)->Is(Tasty)")
+    #     assert meat_rule.__str__() == "awoot"
