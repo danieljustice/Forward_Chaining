@@ -1,8 +1,8 @@
-from .Sentence import Sentence
-from .unify import (is_variable, unify)
-from .Atom import Atom
+from Sentence import Sentence
+from unify import (is_variable, unify)
+from Atom import Atom
 import itertools
-
+import copy
 
 # Rules = []
 # Facts = []
@@ -121,27 +121,49 @@ def enum_subst(p, fact):
 
 
 
-def fire(Rules, Facts, fact):
-    tempRules = Rules[:]
+def fire(Rules, Facts, fact, infers):
+    # print("New Fact: " + fact.__str__())
+    
     Facts.append(fact)
-    for rule in tempRules:
-        for fac in Facts:
-            theta = substitutions(rule, fac)         
-            if len(theta) > 0:
-                # print("woot1")
-                newSentence = subst(theta, rule)
-                #if there are no variables, there are only instances, this is a fact
-                if(len(variables(newSentence.lhs)) == 0):
-                    newFact = Sentence()
-                    newFact.lhs = newSentence.rhs
-                    Facts.append(newFact)
-                else:
-                    tempRules.append(newSentence)
+    while True:
+        new = []    
+        tempRules = copy.deepcopy(Rules)
+        for rule in tempRules:
+            for fac in Facts:
+                # print("Fact: " + fac.__str__())
+                theta = substitutions(rule, fac)         
+                # print( rule.__str__() + " and " + fac.__str__() + " subs to: " + theta.__str__())
+                if len(theta) > 0:
+                    newSentence = subst(theta, rule)
+                    #if there are no variables, there are only instances, this is a fact
+                    # print(newSentence.__str__())
+                    for atom in newSentence.lhs:
+                        if any(atom == fact.lhs[0] for fact in Facts + new):
+                            valid = True
+                        else:
+                            valid = False
+                            break
 
+                    if valid:
+                        newFact = Sentence()
+                        newFact.lhs = newSentence.rhs
+                        infers.append("Inferred: " + newFact.__str__())
+                        if(newFact not in Facts and newFact not in new):
+                            new.append(newFact)
+                        
+                    else:
+                        tempRules.append(newSentence)
+        if not new:
+            break
+        Facts.extend(new)
+        # print("\nNew was added \n")
+        # for Sent in Rules:
+        #     print(Sent.__str__())
+        #     print("")
     # for fact in Facts:
     #     print(fact.lhs[0].predicate + "(" + ''.join(fact.lhs[0].arguments) + ")")
 
-    return Facts
+    return Facts, infers
 
 def substitutions(rule, fact):
     """takes in a fact and a rule, returns all usable subs"""
