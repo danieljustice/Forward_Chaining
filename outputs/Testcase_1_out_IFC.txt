@@ -1,0 +1,6 @@
+True
+Inferred: TooBig(Bob)
+Inferred: Dog(Sally)
+Inferred: GoodSize(Sally)
+Inferred: BetterPet(Sally,Bob)
+Proved: BetterPet(Sally,Bob)

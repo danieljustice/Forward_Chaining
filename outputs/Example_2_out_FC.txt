@@ -1,0 +1,7 @@
+True
+Inferred: Plays(Grace,I1)
+Inferred: NotToneDeaf(Grace)
+Inferred: Plays(Grace,I1)
+Inferred: NotToneDeaf(Grace)
+Inferred: Plays(Grace,I1)
+Proved: NotToneDeaf(Grace)

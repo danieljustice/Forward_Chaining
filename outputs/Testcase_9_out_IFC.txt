@@ -1,0 +1,7 @@
+False
+Inferred: People(Marcus)
+Inferred: Roman(Marcus)
+Inferred: People(Caesar)
+Inferred: Traitor(Marcus)
+Inferred: Hate(Marcus,Caesar)
+Inferred: Hate(Marcus,Caesar)

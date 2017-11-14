@@ -1,0 +1,6 @@
+True
+Inferred: Hostile(Nono)
+Inferred: Sells(West,Nono,M1)
+Inferred: Weapon(M1)
+Inferred: Criminal(West)
+Proved: Criminal(West)
